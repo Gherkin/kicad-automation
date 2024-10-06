@@ -1,0 +1,12 @@
+#!/bin/bash
+
+if [ -e .commit ]
+then
+  rm .commit
+  kicad-cli sch export pdf  "$(sed 's|^.*/||' <(pwd)).kicad_sch"
+  git add "$(sed 's|^.*/||' <(pwd)).pdf"
+
+  ./kicad-automation/generate-ibom.sh
+  git add "index.html"
+  git commit --amend -C HEAD --no-verify
+fi

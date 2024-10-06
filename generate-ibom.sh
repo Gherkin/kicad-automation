@@ -9,4 +9,4 @@
     --highlight-pin1 selected \
     --no-browser \
     --extra-fields LCSC,Datasheet \
-../current_shunt_amplifier.kicad_pcb
+"$(sed 's|^.*/||' <(pwd)).kicad_pcb"
