@@ -1,0 +1,3 @@
+#!/bin/bash
+
+kicad-cli pcb export glb --output "$(sed 's|^.*/||' <(pwd)).glb" --no-dnp --subst-models --include-tracks --include-zones --include-pads --include-silkscreen --include-soldermask --fuse-shapes "$(sed 's|^.*/||' <(pwd)).kicad_pcb"
